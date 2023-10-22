@@ -1,0 +1,15 @@
+
+G	java:S106#"+Replace this use of System.out by a logger.(ÔÙçı8“ÖìÅ³1
+J
+java:S1874#"-Remove this use of "getId"; it is deprecated.(ÔÙçı8µÖìÅ³1
+L	java:S106-"+Replace this use of System.out by a logger.(¾ä£“øÿÿÿÿ8½ÖìÅ³1
+O
+java:S1874-"-Remove this use of "getId"; it is deprecated.(¾ä£“øÿÿÿÿ8¿ÖìÅ³1
+{
+java:S2142B"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8ÈÖìÅ³1
+K
+java:S2140>")Use "java.util.Random.nextInt()" instead.(–Ãƒûÿÿÿÿ8ÊÖìÅ³1
+X	java:S125@"<This block of commented-out lines of code should be removed.(á‰œ8–÷üÅ³1
+{
+java:S2142V"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8ÓÖìÅ³1
+X	java:S125T"<This block of commented-out lines of code should be removed.(á‰œ8¬–ıÅ³1
