@@ -32,14 +32,16 @@ public class Monitor4Condition {
             while (lock.hasWaiters(firstProducer)) {
                 this.increaseWaitingProducerCount(threadId);
                 maxProducerWaitingCount = Math.max(maxProducerWaitingCount, this.producersWaitCount.get(threadId));
-                System.out.println("Producer" + threadId + " waits " + this.producersWaitCount.get(threadId) + " times to add: " + cargo);
-                printQueues();
+//                System.out.println("Producer" + threadId + " waits " + this.producersWaitCount.get(threadId) + " times to add: " + cargo);
+//                printQueues();
                 otherProducers.await();
+                System.out.println("producer - first While");
             }
             this.clearWaitingProducerCount(threadId);
 
 
             while (buforCapacity - bufor.size() < cargo) {
+                System.out.println("producer - second While");
                 firstProducer.await();
             }
 
@@ -50,6 +52,7 @@ public class Monitor4Condition {
             otherProducers.signal();
             firstConsumer.signal();
         } finally {
+//            System.out.println("MaxProducerWaitingCount: " + this.maxProducerWaitingCount);
             lock.unlock();
         }
     }
@@ -60,13 +63,15 @@ public class Monitor4Condition {
             while (lock.hasWaiters(firstConsumer)) {
                 this.increaseWaitingConsumerCount(threadId);
                 maxConsumerWaitingCount = Math.max(maxConsumerWaitingCount, this.consumersWaitCount.get(threadId));
-                System.out.println("Consumer" + threadId + " waits " + this.consumersWaitCount.get(threadId) + " times to remove: " + cargo);
-                printQueues();
+//                System.out.println("Consumer" + threadId + " waits " + this.consumersWaitCount.get(threadId) + " times to remove: " + cargo);
+//                printQueues();
+                System.out.println("consume - first While");
                 otherConsumers.await();
             }
             this.clearWaitingConsumerCount(threadId);
 
             while (bufor.size() < cargo) {
+                System.out.println("consume - second While");
                 firstConsumer.await();
             }
 
@@ -77,7 +82,7 @@ public class Monitor4Condition {
             otherConsumers.signal();
             firstProducer.signal();
         } finally {
-            System.out.println("MaxConsumerWaitingCount: " + this.maxConsumerWaitingCount);
+//            System.out.println("MaxConsumerWaitingCount: " + this.maxConsumerWaitingCount);
             lock.unlock();
         }
     }

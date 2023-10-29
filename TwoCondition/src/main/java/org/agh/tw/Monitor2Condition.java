@@ -43,8 +43,9 @@ public class Monitor2Condition {
             System.out.println("Producent " + Thread.currentThread().getId() + " dodał: " + value + " , " + cargo + " razy.");
 
 
-            otherProducers.signal();
+            otherConsumers.signal();
         } finally {
+            System.out.println("MaxProducerWaitingCount: " + maxProducerWaitingCount);
             lock.unlock();
         }
     }
@@ -65,8 +66,9 @@ public class Monitor2Condition {
                 bufor.removeFirst();
             }
 
-            otherConsumers.signal();
+            otherProducers.signal();
         } finally {
+            System.out.println("MaxConsumerWaitingCount: " + maxConsumerWaitingCount);
             lock.unlock();
         }
     }

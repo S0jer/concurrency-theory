@@ -2,8 +2,8 @@ package org.agh.tw;
 
 public class Main {
     public static void main(String[] args) {
-        int producersNumber = 5;
-        int consumersNumber = 5;
+        int producersNumber = 10;
+        int consumersNumber = 10;
         Monitor2Condition monitor2Condition = new Monitor2Condition(producersNumber, consumersNumber, 10);
 
         for (int i = 0; i < producersNumber; i++) {
