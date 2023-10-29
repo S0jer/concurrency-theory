@@ -1,0 +1,11 @@
+
+a	java:S101:"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ûöüq
+b	java:S101L"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¶Ï”Ÿ
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ªÖ†¸
+@	java:S106"+Replace this use of System.out by a logger.(ØŸ«â
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¼·õ—
+E	java:S106"+Replace this use of System.out by a logger.(›™´ùÿÿÿÿ
+@	java:S106E"+Replace this use of System.out by a logger.(üÂÉƒ
+@	java:S106V"+Replace this use of System.out by a logger.(öğîô

@@ -1,0 +1,10 @@
+
+D
+java:S2189""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8şŸ³×·1
+{
+java:S2142"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8®Õ£À·1
+K
+java:S2140")Use "java.util.Random.nextInt()" instead.(‚ó–ÿÿÿÿÿ8´½Ö·1
+K
+java:S2140")Use "java.util.Random.nextInt()" instead.(ò×ÂÚüÿÿÿÿ8µ½Ö·1
+L	java:S106"+Replace this use of System.out by a logger.(Ñ¬ô§ûÿÿÿÿ8µ½Ö·1
