@@ -1,10 +1,17 @@
 
 k
-java:S1192j"IDefine a constant instead of duplicating this literal " threads" 4 times.(¤¼âŸûÿÿÿÿ8Ú˜ÖÖ·1
-G	java:S106#"+Replace this use of System.out by a logger.(ç‰ï‰8â™ÖÖ·1
-L	java:S106?"+Replace this use of System.out by a logger.(–·°”ÿÿÿÿÿ8å™ÖÖ·1
-L	java:S106P"+Replace this use of System.out by a logger.(²†®ƒùÿÿÿÿ8æ™ÖÖ·1
-L	java:S106j"+Replace this use of System.out by a logger.(¤¼âŸûÿÿÿÿ8è™ÖÖ·1
-G	java:S106k"+Replace this use of System.out by a logger.(ˆÂ…ô8è™ÖÖ·1
-F	java:S106l"+Replace this use of System.out by a logger.(£Ğşb8é™ÖÖ·1
-L	java:S106m"+Replace this use of System.out by a logger.(–Úã†úÿÿÿÿ8é™ÖÖ·1
+java:S1192o"IDefine a constant instead of duplicating this literal " threads" 4 times.(¤¼âŸûÿÿÿÿ8š±ç·1
+]	java:S125#"<This block of commented-out lines of code should be removed.(¹¾üÿÿÿÿ8îÁ´ç·1
+L	java:S106&"+Replace this use of System.out by a logger.(´šÛùÿÿÿÿ8¹’±ç·1
+G	java:S106,"+Replace this use of System.out by a logger.(÷è†ä8¼’±ç·1
+]	java:S1257"<This block of commented-out lines of code should be removed.(Š°Úºúÿÿÿÿ8“¶ç·1
+G	java:S106D"+Replace this use of System.out by a logger.(ş…Û8È’±ç·1
+]	java:S125B"<This block of commented-out lines of code should be removed.(¤Éÿ’şÿÿÿÿ8‚Ú²ç·1
+G	java:S106J"+Replace this use of System.out by a logger.(ƒŸ¯¸8È’±ç·1
+]	java:S125U"<This block of commented-out lines of code should be removed.(åèÚüÿÿÿÿ8ûŒµç·1
+L	java:S106o"+Replace this use of System.out by a logger.(¤¼âŸûÿÿÿÿ8µş±ç·1
+G	java:S106p"+Replace this use of System.out by a logger.(ˆÂ…ô8¼¸²ç·1
+F	java:S106q"+Replace this use of System.out by a logger.(£Ğşb8°È³ç·1
+L	java:S106r"+Replace this use of System.out by a logger.(–Úã†úÿÿÿÿ8§Äµç·1
+L
+java:S1144n"0Remove this unused private "printQueues" method.(Ù¶€q8ƒÂ´ç·1

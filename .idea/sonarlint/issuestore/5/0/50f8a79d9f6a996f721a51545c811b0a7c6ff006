@@ -1,6 +1,10 @@
 
 @	java:S106#"+Replace this use of System.out by a logger.(ÔÙçý
+J
+java:S1874#"-Remove this use of "getId"; it is deprecated.(ÔÙçý8½¬±‹º1
 E	java:S106-"+Replace this use of System.out by a logger.(¾ä£“øÿÿÿÿ
+O
+java:S1874-"-Remove this use of "getId"; it is deprecated.(¾ä£“øÿÿÿÿ8Æ¬±‹º1
 t
 java:S2142B"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€
 D

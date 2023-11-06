@@ -5,3 +5,5 @@ h
 8lab01/lab01/src/main/java/org/tw/ProducentKonsument.java,5\0\50f8a79d9f6a996f721a51545c811b0a7c6ff006
 Z
 *lab01/lab01/src/main/java/org/tw/Main.java,f\7\f76059c418da152a63ad6f5370b617e8444ef77b
+\
+,lab01/lab01/src/main/java/org/tw/MPNKWB.java,c\5\c5cee78a4639e2419d4f5acd6d1150e32d826160

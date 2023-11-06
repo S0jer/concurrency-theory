@@ -32,7 +32,7 @@ public class Monitor4Condition {
             while (lock.hasWaiters(firstProducer)) {
                 this.increaseWaitingProducerCount(threadId);
                 maxProducerWaitingCount = Math.max(maxProducerWaitingCount, this.producersWaitCount.get(threadId));
-//                System.out.println("Producer" + threadId + " waits " + this.producersWaitCount.get(threadId) + " times to add: " + cargo);
+                System.out.println("Producer" + threadId + " waits " + this.producersWaitCount.get(threadId) + " times to add: " + cargo);
 //                printQueues();
                 otherProducers.await();
                 System.out.println("producer - first While");
@@ -63,7 +63,7 @@ public class Monitor4Condition {
             while (lock.hasWaiters(firstConsumer)) {
                 this.increaseWaitingConsumerCount(threadId);
                 maxConsumerWaitingCount = Math.max(maxConsumerWaitingCount, this.consumersWaitCount.get(threadId));
-//                System.out.println("Consumer" + threadId + " waits " + this.consumersWaitCount.get(threadId) + " times to remove: " + cargo);
+                System.out.println("Consumer" + threadId + " waits " + this.consumersWaitCount.get(threadId) + " times to remove: " + cargo);
 //                printQueues();
                 System.out.println("consume - first While");
                 otherConsumers.await();

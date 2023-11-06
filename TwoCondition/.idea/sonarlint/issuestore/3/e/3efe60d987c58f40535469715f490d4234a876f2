@@ -3,6 +3,8 @@ G	java:S106""+Replace this use of System.out by a logger.(ç‰ï‰8éÅˆ×·1
 G	java:S106+"+Replace this use of System.out by a logger.(íÔ–Ï8ëÅˆ×·1
 J
 java:S1874+"-Remove this use of "getId"; it is deprecated.(íÔ–Ï8êÅˆ×·1
-L	java:S106:"+Replace this use of System.out by a logger.(–·°”ÿÿÿÿÿ8Óü“×·1
-G	java:S106_"+Replace this use of System.out by a logger.(ˆÂ…ô8«±¬×·1
-L	java:S106`"+Replace this use of System.out by a logger.(–Úã†úÿÿÿÿ8ÇÛ¬×·1
+L	java:S1060"+Replace this use of System.out by a logger.(ÈùÅİøÿÿÿÿ8Óü“×·1
+L	java:S106;"+Replace this use of System.out by a logger.(–·°”ÿÿÿÿÿ8«±¬×·1
+L	java:S106G"+Replace this use of System.out by a logger.(Äƒ»Åüÿÿÿÿ8ÇÛ¬×·1
+G	java:S106a"+Replace this use of System.out by a logger.(ˆÂ…ô8ÂèÛæ·1
+L	java:S106b"+Replace this use of System.out by a logger.(–Úã†úÿÿÿÿ8°úÜæ·1
