@@ -1,4 +1,4 @@
-package org.agh.tw;
+package org.agh.tw.generators;
 
 import java.util.Random;
 

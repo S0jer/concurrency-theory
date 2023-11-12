@@ -1,5 +1,8 @@
 package org.agh.tw;
 
+import org.agh.tw.generators.IGenerator;
+import org.agh.tw.monitors.IMonitor;
+
 public class Producer implements Runnable {
     private final IMonitor monitor;
     private final IGenerator generator;

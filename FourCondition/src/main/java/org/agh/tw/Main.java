@@ -1,4 +1,11 @@
 package org.agh.tw;
+import org.agh.tw.generators.ConcurrentGenerator;
+import org.agh.tw.generators.IGenerator;
+import org.agh.tw.generators.UtilRandomGenerator;
+import org.agh.tw.monitors.IMonitor;
+import org.agh.tw.monitors.Monitor4Condition;
+import org.agh.tw.test_cases.FixedTimeTestCase;
+
 import java.lang.management.ThreadMXBean;
 
 public class Main {
@@ -11,7 +18,7 @@ public class Main {
 
     public static void main(String[] args) {
         testFixedTime4Cond(
-            new UtilRandomGenerator(), 5, 5, 10, -1
+            new ConcurrentGenerator(), 5, 5, 10, -1
         );
     }
 

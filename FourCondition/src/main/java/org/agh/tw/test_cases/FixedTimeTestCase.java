@@ -1,4 +1,10 @@
-package org.agh.tw;
+package org.agh.tw.test_cases;
+
+import org.agh.tw.Consumer;
+import org.agh.tw.monitors.IMonitor;
+import org.agh.tw.Producer;
+import org.agh.tw.SharedResource;
+import org.agh.tw.generators.IGenerator;
 
 import java.util.ArrayList;
 import java.util.List;

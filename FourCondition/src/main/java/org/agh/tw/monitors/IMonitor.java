@@ -1,4 +1,4 @@
-package org.agh.tw;
+package org.agh.tw.monitors;
 
 public interface IMonitor {
     void produce(int threadId, int cargo, int value) throws InterruptedException;

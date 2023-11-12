@@ -1,4 +1,7 @@
-package org.agh.tw;
+package org.agh.tw.monitors;
+
+import org.agh.tw.SharedResource;
+import org.agh.tw.monitors.IMonitor;
 
 import java.util.ArrayList;
 import java.util.Collections;
