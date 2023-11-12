@@ -6,59 +6,69 @@ import java.util.List;
 
 public class Main {
 
+    private static int NO_OPERATIONS_LIMIT = (int) Math.pow(10, 100);
+
     private static long realTimeStart;
     private static long cpuTimeStart;
     private static ThreadMXBean threadMXBean;
 
     public static void main(String[] args) {
-        int producersNumber = 5;
-        int consumersNumber = 5;
-        int operationsCount = 1000;
-        SharedResource resource = new SharedResource();
-        threadMXBean = ManagementFactory.getThreadMXBean();
-
-        Monitor4Condition monitor4Condition = new Monitor4Condition(producersNumber, consumersNumber, 10, operationsCount, resource);
-        List<Thread> threads = new ArrayList<>();
-
-
-        for (int i = 0; i < producersNumber; i++) {
-            Thread producerThread = new Thread(new Producer(i, monitor4Condition, resource));
-            threads.add(producerThread);
-        }
-
-
-        for (int i = 0; i < consumersNumber; i++) {
-            Thread consumerThread = new Thread(new Consumer(i, monitor4Condition, resource));
-            threads.add(consumerThread);
-        }
-
-        startTimers();
-
-        for (Thread thread : threads) {
-            thread.start();
-        }
-
-        while (!resource.shouldStop) {
-
-        }
-        printElapsedTime();
-
-//        try {
-//            Thread.sleep(10000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
-
-        int consumerOperationsCount =  monitor4Condition.getConsumerOperationsCount();
-        int producerOperationsCount = monitor4Condition.getProducerOperationsCount();
-
-        System.out.println("producerOperationsCount: " + producerOperationsCount);
-        System.out.println("consumerOperationsCount: " + consumerOperationsCount);
-        int ops = (producerOperationsCount + consumerOperationsCount) / 10;
-        System.out.println("Operations per second: " + ops);
-
-
+        testFixedTime4Cond(
+            new UtilRandomGenerator(), 5, 5, 10, -1
+        );
     }
+
+
+//    public static void main(String[] args) {
+//        int producersNumber = 5;
+//        int consumersNumber = 5;
+//        int operationsCount = 1000;
+//        SharedResource resource = new SharedResource();
+//        threadMXBean = ManagementFactory.getThreadMXBean();
+//
+//        Monitor4Condition monitor4Condition = new Monitor4Condition(producersNumber, consumersNumber, 10, operationsCount, resource);
+//        List<Thread> threads = new ArrayList<>();
+//        IGenerator generator = new UtilRandomGenerator();
+//
+//
+//        for (int i = 0; i < producersNumber; i++) {
+//            Thread producerThread = new Thread(new Producer(i, monitor4Condition, generator, resource));
+//            threads.add(producerThread);
+//        }
+//
+//
+//        for (int i = 0; i < consumersNumber; i++) {
+//            Thread consumerThread = new Thread(new Consumer(i, monitor4Condition, generator, resource));
+//            threads.add(consumerThread);
+//        }
+//
+//        startTimers();
+//
+//        for (Thread thread : threads) {
+//            thread.start();
+//        }
+//
+//        while (!resource.shouldStop) {
+//
+//        }
+//        printElapsedTime();
+//
+////        try {
+////            Thread.sleep(10000);
+////        } catch (InterruptedException e) {
+////            throw new RuntimeException(e);
+////        }
+//
+//        int consumerOperationsCount =  monitor4Condition.getConsumerOperationsCount();
+//        int producerOperationsCount = monitor4Condition.getProducerOperationsCount();
+//
+//        System.out.println("producerOperationsCount: " + producerOperationsCount);
+//        System.out.println("consumerOperationsCount: " + consumerOperationsCount);
+//        int ops = (producerOperationsCount + consumerOperationsCount) / 10;
+//        System.out.println("Operations per second: " + ops);
+//
+//
+//    }
 
     private static void startTimers() {
         realTimeStart = System.nanoTime();
@@ -89,8 +99,16 @@ public class Main {
     // w jaki sposób ten generator sie zachowuje lepiej czy gorzej (generator moze uzywac zmiennych współdzielonych)
     // Na nastepny raz wykresy z pomiarów
 
-    public static class SharedResource {
-        public volatile boolean shouldStop = false;
-    }
+    private static void testFixedTime4Cond(IGenerator generator, int nProducers, int nConsumers, int buforCapacity, int maxPortion) {
+        SharedResource resource = new SharedResource();
+        IMonitor monitor = new Monitor4Condition(
+            nProducers, nConsumers, buforCapacity, NO_OPERATIONS_LIMIT, resource
+        );
 
+        FixedTimeTestCase testCase = new FixedTimeTestCase(
+                monitor, generator, 5, nProducers, nConsumers, resource
+        );
+        int operationsCount = testCase.test();
+        System.out.println("Operations count: " + operationsCount);
+    }
 }
