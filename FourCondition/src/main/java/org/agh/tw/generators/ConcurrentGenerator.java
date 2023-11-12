@@ -11,7 +11,7 @@ public class ConcurrentGenerator implements IGenerator {
     @Override
     public int generate(int min, int max) {
         // Check if min is greater than or equal to max
-        if (min >= max) {
+        if (min > max) {
             throw new IllegalArgumentException("max must be greater than min");
         }
 
