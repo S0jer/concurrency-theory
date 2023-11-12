@@ -1,12 +1,9 @@
 package org.agh.tw;
-import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadMXBean;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
 
-    private static int NO_OPERATIONS_LIMIT = (int) Math.pow(10, 100);
+    private final static int NO_OPERATIONS_LIMIT = (int) Math.pow(10, 100);
 
     private static long realTimeStart;
     private static long cpuTimeStart;
