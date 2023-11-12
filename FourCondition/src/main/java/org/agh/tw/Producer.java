@@ -26,7 +26,7 @@ public class Producer implements Runnable {
                 monitor.produce(threadId, cargo, value);
             }
         } catch (InterruptedException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
 }

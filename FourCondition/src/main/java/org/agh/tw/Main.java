@@ -1,15 +1,16 @@
 package org.agh.tw;
 import org.agh.tw.generators.ConcurrentGenerator;
 import org.agh.tw.generators.IGenerator;
-import org.agh.tw.generators.UtilRandomGenerator;
 import org.agh.tw.monitors.IMonitor;
 import org.agh.tw.monitors.Monitor4Condition;
+import org.agh.tw.test_cases.FixedOperationsTestCase;
 import org.agh.tw.test_cases.FixedTimeTestCase;
 
 import java.lang.management.ThreadMXBean;
 
 public class Main {
 
+    private static final double NANO = 1_000_000_000D;
     private final static int NO_OPERATIONS_LIMIT = (int) Math.pow(10, 100);
 
     private static long realTimeStart;
@@ -17,9 +18,22 @@ public class Main {
     private static ThreadMXBean threadMXBean;
 
     public static void main(String[] args) {
-        testFixedTime4Cond(
-            new ConcurrentGenerator(), 5, 5, 10, -1
-        );
+        ConcurrentGenerator concurrentGenerator = new ConcurrentGenerator();
+
+        for (int i=0; i<10; i++) {
+            testFixedTime4Cond(
+                concurrentGenerator, 1, 1, 1, 10, -1
+            );
+            System.out.println(Thread.activeCount());
+        }
+
+//        testFixedOperations4Cond(
+//            concurrentGenerator,  400_000, 5, 5, 10, -1
+//        );
+//        System.out.println(Thread.activeCount());
+
+
+        System.exit(0);
     }
 
 
@@ -103,16 +117,37 @@ public class Main {
     // w jaki sposób ten generator sie zachowuje lepiej czy gorzej (generator moze uzywac zmiennych współdzielonych)
     // Na nastepny raz wykresy z pomiarów
 
-    private static void testFixedTime4Cond(IGenerator generator, int nProducers, int nConsumers, int buforCapacity, int maxPortion) {
+    private static void testFixedTime4Cond(
+        IGenerator generator, int seconds, int nProducers,
+        int nConsumers, int buforCapacity, int maxPortion
+    ) {
         SharedResource resource = new SharedResource();
         IMonitor monitor = new Monitor4Condition(
             nProducers, nConsumers, buforCapacity, NO_OPERATIONS_LIMIT, resource
         );
 
         FixedTimeTestCase testCase = new FixedTimeTestCase(
-                monitor, generator, 5, nProducers, nConsumers, resource
+                monitor, generator, seconds, nProducers, nConsumers, resource
         );
-        int operationsCount = testCase.test();
-        System.out.println("Operations count: " + operationsCount);
+        testCase.run();
+        System.out.println("Operations count: " + testCase.operationsCount);
+    }
+
+
+    private static void testFixedOperations4Cond(
+        IGenerator generator, int operationsCount, int nProducers,
+        int nConsumers, int buforCapacity, int maxPortion
+    ) {
+        SharedResource resource = new SharedResource();
+        IMonitor monitor = new Monitor4Condition(
+            nProducers, nConsumers, buforCapacity, operationsCount, resource
+        );
+
+        FixedOperationsTestCase testCase = new FixedOperationsTestCase(
+            monitor, generator, nProducers, nConsumers, resource
+        );
+        testCase.run();
+        System.out.println("Real time elapsed: " + testCase.realTimeElapsed / NANO  + " seconds");
+        System.out.println("CPU time elapsed: " + testCase.cpuTimeElapsed / NANO + " seconds");
     }
 }

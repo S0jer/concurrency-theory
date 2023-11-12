@@ -39,7 +39,7 @@ public class Monitor4Condition implements IMonitor {
     }
 
     @Override
-    public void produce(int threadId, int cargo, int value) throws InterruptedException {
+    public void produce(int threadId, int cargo, int value) {
         lock.lock();
         try {
             while (this.isFirstProducerWaiting) {
@@ -71,6 +71,7 @@ public class Monitor4Condition implements IMonitor {
             otherProducers.signal();
             firstConsumer.signal();
         } catch(InterruptedException ignored) {
+            Thread.currentThread().interrupt();
         } finally {
 //            System.out.println("MaxProducerWaitingCount: " + this.maxProducerWaitingCount);
             lock.unlock();
@@ -78,7 +79,7 @@ public class Monitor4Condition implements IMonitor {
     }
 
     @Override
-    public void consume(int threadId, int cargo) throws InterruptedException {
+    public void consume(int threadId, int cargo) {
         lock.lock();
         try {
             while (this.isFirstConsumerWaiting) {
@@ -109,6 +110,7 @@ public class Monitor4Condition implements IMonitor {
             otherConsumers.signal();
             firstProducer.signal();
         } catch(InterruptedException ignored) {
+            Thread.currentThread().interrupt();
         } finally {
 //            System.out.println("MaxConsumerWaitingCount: " + this.maxConsumerWaitingCount);
             lock.unlock();
