@@ -1,4 +1,7 @@
-package org.agh.tw;
+package org.agh.tw.monitors;
+
+import org.agh.tw.SharedResource;
+import org.agh.tw.monitors.IMonitor;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,7 +10,7 @@ import java.util.List;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Monitor4Condition {
+public class Monitor4Condition implements IMonitor {
     private LinkedList<Integer> bufor = new LinkedList<>();
     private int buforCapacity;
     private int maxProducerWaitingCount = 0;
@@ -21,21 +24,22 @@ public class Monitor4Condition {
     private boolean isFirstConsumerWaiting = false;
     private final List<Integer> producersWaitCount;
     private final List<Integer> consumersWaitCount;
-    private final Main.SharedResource resource;
+    private final SharedResource resource;
     private int producerOperationsCount = 0;
     private int consumerOperationsCount = 0;
-    private int operationsCountLimit;
+    private int operationsCountLimit;   // -1 means there's no limit
 
 
-    public Monitor4Condition(int producersNumber, int consumersNumber, int buforCapacity, int operationsCountLimit, Main.SharedResource resource) {
+    public Monitor4Condition(int producersNumber, int consumersNumber, int buforCapacity, int operationsCountLimit, SharedResource resource) {
         this.producersWaitCount = new ArrayList<>(Collections.nCopies(producersNumber, 0));
         this.consumersWaitCount = new ArrayList<>(Collections.nCopies(consumersNumber, 0));
-        this.buforCapacity = buforCapacity * 2;
+        this.buforCapacity = buforCapacity;
         this.operationsCountLimit = operationsCountLimit;
         this.resource = resource;
     }
 
-    public void produce(int threadId, int cargo, int value) throws InterruptedException {
+    @Override
+    public void produce(int threadId, int cargo, int value) {
         lock.lock();
         try {
             while (this.isFirstProducerWaiting) {
@@ -58,6 +62,7 @@ public class Monitor4Condition {
 
             operationsCountLimit -= 1;
             producerOperationsCount += 1;
+
             if (operationsCountLimit <= 0) {
                 resource.shouldStop = true;
             }
@@ -65,13 +70,16 @@ public class Monitor4Condition {
             this.isFirstProducerWaiting = false;
             otherProducers.signal();
             firstConsumer.signal();
+        } catch(InterruptedException ignored) {
+            Thread.currentThread().interrupt();
         } finally {
 //            System.out.println("MaxProducerWaitingCount: " + this.maxProducerWaitingCount);
             lock.unlock();
         }
     }
 
-    public void consume(int threadId, int cargo) throws InterruptedException {
+    @Override
+    public void consume(int threadId, int cargo) {
         lock.lock();
         try {
             while (this.isFirstConsumerWaiting) {
@@ -91,6 +99,7 @@ public class Monitor4Condition {
             for (int i = 0; i < cargo; i++) {
                 bufor.removeFirst();
             }
+
             operationsCountLimit -= 1;
             consumerOperationsCount += 1;
 
@@ -100,6 +109,8 @@ public class Monitor4Condition {
             this.isFirstConsumerWaiting = false;
             otherConsumers.signal();
             firstProducer.signal();
+        } catch(InterruptedException ignored) {
+            Thread.currentThread().interrupt();
         } finally {
 //            System.out.println("MaxConsumerWaitingCount: " + this.maxConsumerWaitingCount);
             lock.unlock();
@@ -138,10 +149,13 @@ public class Monitor4Condition {
         System.out.println("Consumers: " + consumersWaitCount.toString());
     }
 
+
+    @Override
     public int getProducerOperationsCount() {
         return producerOperationsCount;
     }
 
+    @Override
     public int getConsumerOperationsCount() {
         return consumerOperationsCount;
     }
