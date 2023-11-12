@@ -1,0 +1,19 @@
+
+e
+java:S1192"IDefine a constant instead of duplicating this literal " threads" 4 times.(¤¼âŸûÿÿÿÿ
+V	java:S1250"<This block of commented-out lines of code should be removed.(¹¾üÿÿÿÿ
+V	java:S125L"<This block of commented-out lines of code should be removed.(Š°Úºúÿÿÿÿ
+V	java:S125X"<This block of commented-out lines of code should be removed.(¤Éÿ’şÿÿÿÿ
+V	java:S125s"<This block of commented-out lines of code should be removed.(åèÚüÿÿÿÿ
+F	java:S106"+Replace this use of System.out by a logger.(¤¼âŸûÿÿÿÿ
+A	java:S106"+Replace this use of System.out by a logger.(ˆÂ…ô
+@	java:S106"+Replace this use of System.out by a logger.(£Ğşb
+F	java:S106"+Replace this use of System.out by a logger.(–Úã†úÿÿÿÿ
+A	java:S106”"+Replace this use of System.out by a logger.(¸§Ëƒ
+A	java:S106•"+Replace this use of System.out by a logger.(”À”Ù
+q
+java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(§ığŸ8Ø¿¨¼1
+F
+java:S1144Œ"0Remove this unused private "printQueues" method.(Ù¶€q
+F
+java:S1144“"/Remove this unused private "printLists" method.(©å¥

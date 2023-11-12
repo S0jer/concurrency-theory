@@ -1,0 +1,42 @@
+1. Ustawienie poprawnej wielkości bufora:
+   - Poprawna wielkość bufora powinna być dwa razy większa niż maksymalna możliwa do wyprodukowania wartość.
+
+2. Jak dochodzi do zakleszczenia przy niewłaściwej długości bufora:
+   - Zakleszczenie może wystąpić, gdy producenci wypełnią bufor i czekają na to, aż konsumenty zaczną konsumować dane, ale z jakiegoś powodu tego nie robią. Przykładowy układ zdarzeń: Jeśli bufor ma miejsce na 1 przedmiot, a producent dodaje przedmiot i oczekuje, aż konsument go usunie, ale konsument oczekuje na większą liczbę przedmiotów zanim zacznie konsumować, obie strony będą czekać na siebie nawzajem, prowadząc do zakleszczenia.
+
+3. Zagłodzenie przy rozwiązaniu zadania na dwóch `Conditions`:
+   - Zagładzanie występuje dla wątków które mają "duże wymagania" tj. zjadają / produkują duże wartości i w ich przypadku warunek rzadko jest spełniany ponieważ wątki mające mniejsze wymagania szybciej dostają dostęp do zasobów przez co warunki dla bardziej wymagających nie zostają spełnianie
+
+4. Jak można wykazać/zmierzyć zagłodzenie:
+   - Możesz to zrobić poprzez monitorowanie czasu oczekiwania każdego wątku. Jeśli pewne wątki czekają znacznie dłużej niż inne, jest to oznaka zagłodzenia. Możesz też zarejestrować liczbę operacji dokonanych przez każdy wątek w określonym czasie i porównać te liczby.
+
+5. Zagłodzenie przy rozwiązaniu "poprawnym" na 4 `Conditions` z zastosowaniem `hasWaiters()`:
+   - Przy korzystaniu z `hasWaiters()`, wątek może sprawdzać, czy inny wątek oczekuje na pewien `Condition`. Jeśli nie, może kontynuować swoją pracę. To może prowadzić do zagłodzenia, gdy wątek producenta lub konsumenta nieustannie pracuje, podczas gdy przeciwna strona czeka.
+
+   HasWaiters 4 Condititons zagłodzenie:
+    - na pierwszym warunku wątek X przechodzi do drugiej pętli zaraz po tym jak wątek Y z drugiej pętli z niej wyjdzie 
+    - wątek Y jeszcze nie dostał się do zasobów
+    - wątek X przechodzi przez drugą pętlę nie zatrzymując sie na niej ponieważ spełnia warunek
+    - wątek X podkrada zasoby wątkowi Y oraz budzi inne wątki
+    - wątek Y jest zagładzany
+
+6. Zakleszczenie przy rozwiązaniu "poprawnym" na 4 `Conditions` z zastosowaniem `hasWaiters()`:
+   - Zakleszczenie może wystąpić, gdy wątki niepoprawnie sprawdzają oczekujące wątki i wysyłają sygnały do niewłaściwych `Condition`. Jeśli producent wysyła sygnał do innego producenta, zamiast do konsumenta (i odwrotnie), obie strony mogą czekać na zasób trzymany przez drugą stronę, co prowadzi do zakleszczenia.
+   - zamiast sprawdzić liczbę zasobów sprawdza czy ktoś się jest w kolejce
+   - Jeśli konsument nie wrócił jeszcze z konsumowania a producenci zostali powiadomienie o tym że mogą prosić o dostęp do zasobów to nie ma dla nich jeszcze miejsca aby wyprodukować zasoby
+
+
+
+// 2 producentów 1 konsument, układ zdarzeń prowadzący do zakleszczenia:
+//   0. init B=0
+//   1. producent 1 wpisuje wartość i wychodzi B=1
+//   2. producent 2 wchodzi do synchronized i wisi B=1
+//   3. producent 1 wchodzi do synchronized i wisi B=1
+//   4. konsument konsumuje, notyfikuje i wychodzi B=0
+//   5. producent 1 jest notyfikowany, próbuje uzyskać dostęp
+//   6. ...ale scheduler przyznaje dostęp konsumentowi
+//   7. konsument wchodzi do synchronized i wisi B=0
+//   8. producent 1 wpisuje wartość, notyfikuje i wychodzi B=1
+//   9. producent 2 jest notyfikowany, wchodzi do synchronized i wisi B=1
+//   10. producent 1 wchodzi do synchronized i wisi B=1
+//       -- wszystko wisi, mamy ZAKLESZCZENIE --

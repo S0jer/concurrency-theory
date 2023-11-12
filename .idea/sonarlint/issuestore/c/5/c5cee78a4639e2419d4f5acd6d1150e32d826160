@@ -1,0 +1,25 @@
+
+=
+java:S2189f""Add an end condition to this loop.(˜ïˆžÿÿÿÿÿ
+=
+java:S2189{""Add an end condition to this loop.(˜ïˆžÿÿÿÿÿ
+@	java:S1066"+Replace this use of System.out by a logger.(·¬ÈÒ
+C
+java:S18746"-Remove this use of "getId"; it is deprecated.(·¬ÈÒ
+V
+java:S1854L";Remove this useless assignment to local variable "wartosc".(˜µë°ÿÿÿÿÿ
+G
+java:S1481L",Remove this unused "wartosc" local variable.(˜µë°ÿÿÿÿÿ
+@	java:S106N"+Replace this use of System.out by a logger.(†‚¡ú
+C
+java:S1874N"-Remove this use of "getId"; it is deprecated.(†‚¡ú
+t
+java:S2142k"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€
+D
+java:S2140g")Use "java.util.Random.nextInt()" instead.(²ù¦Þùÿÿÿÿ
+D
+java:S2140h")Use "java.util.Random.nextInt()" instead.(–Ãƒžûÿÿÿÿ
+t
+java:S2142"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€
+D
+java:S2140|")Use "java.util.Random.nextInt()" instead.(²ù¦Þùÿÿÿÿ
