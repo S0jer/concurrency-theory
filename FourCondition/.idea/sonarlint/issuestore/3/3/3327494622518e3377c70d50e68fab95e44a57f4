@@ -1,15 +1,13 @@
 
-}	java:S116"\Rename this field "outside_producers" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Å­´üüÿÿÿÿ8ŠËä¨¼1
-}	java:S116"\Rename this field "outside_consumers" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚ê–ûÿÿÿÿ8ŠËä¨¼1
-w	java:S116"VRename this field "inside_lock" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬”ÊÌùÿÿÿÿ8ŠËä¨¼1
-|	java:S116"[Rename this field "common_condition" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(› ¢ùıÿÿÿÿ8‹Ëä¨¼1
-q
-java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(§ığŸ8ÑÌä¨¼1
+}	java:S116"\Rename this field "outside_producers" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Å­´üüÿÿÿÿ8ŠËä¨¼1
+}	java:S116"\Rename this field "outside_consumers" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚ê–ûÿÿÿÿ8ŠËä¨¼1
+w	java:S116"VRename this field "inside_lock" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬”ÊÌùÿÿÿÿ8ŠËä¨¼1
+|	java:S116"[Rename this field "common_condition" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(› ¢ùıÿÿÿÿ8‹Ëä¨¼1
 ]
-java:S1068";Remove this unused "maxProducerWaitingCount" private field.(…éŠ¸ûÿÿÿÿ8ÑÌä¨¼1
+java:S1068";Remove this unused "maxProducerWaitingCount" private field.(…éŠ¸ûÿÿÿÿ8ÑÌä¨¼1
 ]
-java:S1068";Remove this unused "maxConsumerWaitingCount" private field.(²ßÎıÿÿÿÿ8ÒÌä¨¼1
+java:S1068";Remove this unused "maxConsumerWaitingCount" private field.(²ßÎıÿÿÿÿ8ÒÌä¨¼1
 S
-java:S1068"6Remove this unused "producersWaitCount" private field.(Ìùã8ÓÌä¨¼1
+java:S1068"6Remove this unused "producersWaitCount" private field.(Ìùã8ÓÌä¨¼1
 X
-java:S1068"6Remove this unused "consumersWaitCount" private field.(¤ÔÑøÿÿÿÿ8ÔÌä¨¼1
+java:S1068"6Remove this unused "consumersWaitCount" private field.(¤ÔÑøÿÿÿÿ8ÔÌä¨¼1

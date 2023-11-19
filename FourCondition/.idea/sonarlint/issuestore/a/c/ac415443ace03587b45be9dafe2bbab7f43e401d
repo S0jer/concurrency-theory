@@ -1,41 +1,25 @@
 
-†
-java:S1192A"dDefine a constant instead of duplicating this literal "Åšrednia liczba wykonanych operacji" 5 times.(‚°áÿÿÿÿÿ8€¿Êª¼1
+z
+java:S1192E"^Define a constant instead of duplicating this literal "Number of Producers/Consumers" 4 times.(®æÂO8ÚãƒË¾1
 ]
-java:S2184l"@Cast one of the operands of this integer division to a "double".(ëÉÛÇ8ƒ¿Êª¼1
+java:S2184{"@Cast one of the operands of this integer division to a "double".(ëÉÛÇ8ŞôÊ¾1
 g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ôöÕ€úÿÿÿÿ8‡ÀÊª¼1
-X	java:S125"<This block of commented-out lines of code should be removed.(ŒƒŸ¨8ˆÀÊª¼1
-]	java:S125&"<This block of commented-out lines of code should be removed.(¼è÷ïøÿÿÿÿ8ˆÀÊª¼1
-F	java:S106p"+Replace this use of System.out by a logger.(ğ÷†T8’ÀÊª¼1
-H	java:S106¿"+Replace this use of System.out by a logger.(ûèÛ 8›ÀÊª¼1
-M	java:S106À"+Replace this use of System.out by a logger.(Æ¾­‘ıÿÿÿÿ8 ÀÊª¼1
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ôöÕ€úÿÿÿÿ8®àôÊ¾1
+H	java:S106æ"+Replace this use of System.out by a logger.(ûèÛ 8¤¬„Ë¾1
+M	java:S106ç"+Replace this use of System.out by a logger.(Æ¾­‘ıÿÿÿÿ8¤¬„Ë¾1
 T
-java:S1172Ö"1Remove this unused method parameter "maxPortion".(ğ«Å°ùÿÿÿÿ8Òèôª¼1
-Y	java:S125â"<This block of commented-out lines of code should be removed.(ïÀŸô8Õèôª¼1
+java:S1172ì"1Remove this unused method parameter "maxPortion".(ğ«Å°ùÿÿÿÿ8©¬„Ë¾1
 T
-java:S1172ç"1Remove this unused method parameter "maxPortion".(ğ«Å°ùÿÿÿÿ8Õèôª¼1
-Y	java:S125ó"<This block of commented-out lines of code should be removed.(ßÌÑ½8Öèôª¼1
+java:S1172ü"1Remove this unused method parameter "maxPortion".(ğ«Å°ùÿÿÿÿ8«¬„Ë¾1
 T
-java:S1172ù"1Remove this unused method parameter "maxPortion".(ğ«Å°ùÿÿÿÿ8×èôª¼1
-H	java:S106„"+Replace this use of System.out by a logger.(ŞÕÛ§8Ùèôª¼1
-M	java:S106…"+Replace this use of System.out by a logger.(ÊŸœúÿÿÿÿ8Úèôª¼1
+java:S1172Œ"1Remove this unused method parameter "maxPortion".(ğ«Å°ùÿÿÿÿ8·º¹Ë¾1
+H	java:S106—"+Replace this use of System.out by a logger.(ŞÕÛ§8¹º¹Ë¾1
+M	java:S106˜"+Replace this use of System.out by a logger.(ÊŸœúÿÿÿÿ8¹º¹Ë¾1
 T
-java:S1172Š"1Remove this unused method parameter "maxPortion".(ğ«Å°ùÿÿÿÿ8Ûèôª¼1
-Y	java:S125–"<This block of commented-out lines of code should be removed.(ïÀŸô8Şèôª¼1
-S
-java:S1144-"6Remove this unused private "compareGenerators" method.(»¯×¿8¢ÀÊª¼1
-S
-java:S1144E"6Remove this unused private "compareBufferSize" method.(Öíç8¢ÀÊª¼1
-W
-java:S1144_":Remove this unused private "compareProdConsNumber" method.(‡İ©œ8£ÀÊª¼1
-Q
-java:S1144~"4Remove this unused private "compareMonitors" method.(À†Ç8¶ÿ‚«¼1
-d
-java:S1144–"ARemove this unused private "compareOperationsCountToTime" method.(à¥–üüÿÿÿÿ8»ˆ«¼1
+java:S1172"1Remove this unused method parameter "maxPortion".(ğ«Å°ùÿÿÿÿ8ºº¹Ë¾1
 N
-java:S1144·"0Remove this unused private "startTimers" method.(¤ËË8ßèôª¼1
+java:S1144Ş"0Remove this unused private "startTimers" method.(¤ËË8¯¬„Ë¾1
 S
-java:S1144¼"5Remove this unused private "printElapsedTime" method.(¾İ8ßèôª¼1
+java:S1144ã"5Remove this unused private "printElapsedTime" method.(¾İ8¯¬„Ë¾1
 f
-java:S1144÷"CRemove this unused private "testFixedOperationsNestedLocks" method.(¬ã·ğşÿÿÿÿ8ßèôª¼1
+java:S1144Š"CRemove this unused private "testFixedOperationsNestedLocks" method.(¬ã·ğşÿÿÿÿ8½º¹Ë¾1
