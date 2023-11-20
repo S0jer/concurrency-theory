@@ -112,16 +112,14 @@ public class Main {
         List<Integer> consumerProducerSizes = Arrays.asList(2, 3, 4, 5, 10, 25, 50, 100, 250, 500, 750, 1000);
         List<Double> results = new ArrayList<>();
 
-        for (int consumerSize : consumerProducerSizes) {
-            for (int producerSize : consumerProducerSizes) {
-                int sum = 0;
-                for (int i = 0; i < 10; i++) {
-                    sum += testFixedTime4Cond(
-                            generator, 1, producerSize, consumerSize, 20, -1
-                    );
-                }
-                results.add((double) (sum / 10));
+        for (int prodConsSize : consumerProducerSizes) {
+            int sum = 0;
+            for (int i = 0; i < 10; i++) {
+                sum += testFixedTime4Cond(
+                        generator, 1, prodConsSize, prodConsSize, 20, -1
+                );
             }
+            results.add((double) (sum / 10));
         }
 
         new BarChart(
@@ -130,7 +128,7 @@ public class Main {
                 results,
                 "Compare Prod Cons Number",
                 "compareProdConsNumber.jpg",
-                "Wielkość buffora",
+                "Ilość konsumenta/producenta",
                 "Średnia liczba wykonanych operacji"
         );
     }
