@@ -210,7 +210,7 @@ public class Main {
                 "Time Comparison",
                 "compareOperationsTime.jpg",
                 "Number of Producers/Consumers",
-                "Time (ns)"
+                "Time (s)"
         );
         scatterPlot.pack();
         scatterPlot.setVisible(true);
